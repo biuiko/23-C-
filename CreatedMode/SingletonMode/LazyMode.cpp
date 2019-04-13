@@ -1,5 +1,8 @@
 #include<iostream>
+#include <mutex>
 using namespace std;
+
+mutex mtx;
 
 class Singleton
 {
@@ -17,7 +20,10 @@ private:
 public:
 	static Singleton* getInstance()
 	{
+		mtx.lock();
 		static Singleton Instance;	//here is my instance,when i need to use it at first time,it creates.
+		mtx.unlock();
+
 		return &Instance;
 	}
 };

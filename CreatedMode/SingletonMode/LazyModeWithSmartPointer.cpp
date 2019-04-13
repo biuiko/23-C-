@@ -1,7 +1,9 @@
 #include<iostream>
 #include<memory>
+#include<mutex>
 using namespace std;
 
+mutex mtx;	
 class Singleton
 {
 private:
@@ -16,7 +18,9 @@ private:
 public:
 	static shared_ptr<Singleton> getInstance()
 	{
+		mtx.lock();	 //lock
 		static shared_ptr<Singleton> Instance(new Singleton(),Singleton::Destory);
+		mtx.unlock();	//unlock
 		return Instance;
 	}
 };
