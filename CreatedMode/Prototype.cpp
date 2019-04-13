@@ -57,6 +57,6 @@ int main()
 	obj2->set_name("ooo");
 	obj1->show_name();
 	obj2->show_name();
-
+	
 	return 0;
 }
