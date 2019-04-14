@@ -55,9 +55,11 @@ int main()
 	
 	Product* product1 = factory->create_product();
 	product1->show_product_name();
-
+	delete factory;
+	factory = NULL;
 	factory = new ConcreteFactoryB;
 	
 	Product* product2 = factory->create_product();
 	product2->show_product_name();
+	delete factory;
 }
